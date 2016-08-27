@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-let i = ''
 const {
     Readable, Writable, Transform
 } = require('stream')
@@ -14,25 +13,11 @@ const {
 } = require('event-stream')
 
 const [, , ...cliArgs] = process.argv
-const readStream = createReadStream('/usr/share/dict/words/') //, {
-    // highWaterMark: 1
-    // })
-    ///////////
 
-///////////
-// readStream.on('data', buffer => {
-//     readStream.pause()
-//     // process.stdout.write(buffer.toString())
-// })
-//
+const readStream = createReadStream('/usr/share/dict/words/')
+
+
 const transformer = require('./limit-ten')
-    ////
-    // const timer = setInterval(() => readStream.resume(), 50)
-    // readStream.on('end', () => {
-
-//     // console.log('end')
-//     clearInterval(timer) //without this line the program will continue to run
-// })
 
 
 readStream
